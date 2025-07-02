@@ -1,0 +1,35 @@
+put different floating pieces with lyrics on it, and the idea of the game is that in each level there is a particular song from that album - so you have to pick all the right lyrics to that song (there'll be many decoys as well, goal is to pick the correct ones) and can show a counter of how many lyrics are there (or can do some other picking game - like items from that era or something) and once the counter is full (like 13/13 items found) can move to the next era
+
+also play her fav song from that album (like a small clip) during the time she takes to complete that level
+
+Floating fragments gently drift in random directions
+Can rotate slightly, bounce a little when clicked
+Background elements (like clouds or leaves) slowly move across the screen
+CSS animations for sparkle effects
+Correct lyrics fade out or "pop" when clicked
+Maybe a little shimmer trail when collecting?
+
+background is aesthetic with thematic art (not taylor pics)
+Playful animations: floating, drifting, sparkles
+
+Along with the floating lyric fragments:
+Sprinkle in floating iconic trinkets or symbols from each album
+Clicking a trinket gives bonus points, sparkles, or a fun sound
+They float around like lyrics but styled differently (maybe sparkle or glow)
+Click = satisfying animation (sparkles, sound)
+Trinket counter shows: Trinkets Found: 2/3
+
+
+
+Debut - Mary's Song (Oh My My) 
+Fearless - Love Story 
+Speak Now - Sparks Fly/Enchanted
+Red - FUCK I CANT CHOOSE 
+1989 - Wildest Dreams
+Reputation - Dancing with our hands tied/Call it what you want
+Lover - Paper rings 
+Folklore - Peace (but The Lakes on deluxe)
+Evermore - FUCK I CANT CHOOSE
+Midnights - You're on Your Own Kid (Hits different on deluxe)
+TTPD (main disk): Who's afraid of little old me
+TTPD (extended): The Prophecy/I hate it here

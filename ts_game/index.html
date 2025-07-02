@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lyric Adventure 💜</title>
+        <link rel="stylesheet" href="style.css"> <!--connects to style file-->
+    </head>
+
+    <body>
+        <!--game container: -->
+        <div id = "game-container">
+
+            <div id = "scene-background">   <!--album themed scene backgrounds-->
+
+                <div id="counter-area"> 
+                    <div id="trinket-counter">Trinkets Found: 0/0</div> <!--counter for trinkets-->
+                    <div id="lyric-counter">Lyrics Found: 0/0</div> <!--counter for lyrics-->
+                </div>
+
+                <div id="floating area"></div>
+
+                <p id="message-box" class="hidden"><</p>
+
+            </div>
+        </div>
+
+        <script src="levels.js"></script> <!--connects to levels file-->
+        <script src="game.js"></script>  <!--connects to game logic-->
+
+    </body>
+</html>

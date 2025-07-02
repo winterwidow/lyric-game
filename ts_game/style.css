@@ -1,0 +1,81 @@
+/* VISUALS */
+
+/* full screen setup */
+
+body {
+margin: 0;
+padding: 0;
+overflow: hidden;
+font-family: fantasy;
+background-color: black;
+height: 100%;
+}
+
+/* background images */
+#scene-background {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Ensure it is behind other elements */
+    display: flex;
+}
+
+#floating-area{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.lyric-fragment,.trinket {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    animation: float 8s ease-in-out infinite;
+    user-select: none;
+    font-size: 18px;
+}
+
+.trinket {
+    width: 50px;
+    height: 50px;
+    background: none;
+    padding: 0;
+}
+
+#counter-area{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3;
+    color:white;
+    text-shadow: 1px 1px 2px black; 
+    font-size: 16px;
+}
+
+/* message box - bottom when required */
+#message-box {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.616);
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    z-index: 4;
+}
+
+/* hides message box when not in use - dynamically done in js */
+.hidden {display:none;}
+
+@keyframes float{
+    0% {transform: translateY(0) rotate(0deg)}
+    50% {transform: translateY(-20px) rotate(5deg)}
+    100% {transform: translateY(0) rotate(0deg)}
+}

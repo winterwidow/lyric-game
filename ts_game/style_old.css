@@ -1,0 +1,106 @@
+/* VISUALS */
+
+/* full screen setup */
+
+body {
+margin: 0;
+padding: 0;
+overflow: hidden;
+font-family: fantasy;
+background-color: black;
+height: 100%;
+}
+
+/* background images */
+/*#scene-background {
+    position: absolute; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    background-size: cover;  
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background-color: black;
+}*/
+
+#scene-background {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Ensure it is behind other elements */
+    display: flex;
+}
+
+/* lyric text at top */
+#lyric-display {
+    text-align: center;
+    color: rgb(185, 187, 215);
+    margin-top: 50px;
+    font-size: 25px;
+    font-family: '';
+}
+
+/* lyric input */
+#lyric-input {
+    padding: 10px;
+    font-size: 20px;
+    width: 60%;
+    border-radius: 5px;
+    margin-bottom: 12px;
+    border: 1px solid #c5bfbf;
+}
+
+/* hint button - top right always */
+/*
+#hint-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border: rgb(73, 72, 72);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+*/
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* submot button */
+/*#submit-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    margin: 5px;
+    background-color: #b9a9c6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+*/
+/* message box - bottom when required */
+#message-box {
+    position: fixed;
+    bottom: 20px;
+    width: 30px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.612);
+    padding: 15px;
+    font-size: 20px;
+}
+
+/* hides message box when not in use - dynamically done in js */
+.hidden {display:none;}
