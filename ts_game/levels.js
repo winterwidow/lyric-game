@@ -5,10 +5,15 @@ const levels = [
         album: "Debut",
         background: "assests/backgrounds/debut.jpg",
         correctLyrics: [
-            "A few years had gone and come around", "we were sitting at our favorite spot in town", "I looked at you like the stars that shine", "I'll be eighty-seven; you'll be eighty-nine"
+            "A few years had gone and come around", 
+            "we were sitting at our favorite spot in town", 
+            "I looked at you like the stars that shine", 
+            "I'll be eighty-seven; you'll be eighty-nine"
         ],
         decoys: [
-            " I was fifteen when suddenly", "Take me back to the creek beds we burned up", "The slamming of doors kissing goodbye"
+            " I was fifteen when suddenly", 
+            "Take me back to the creek beds we burned up", 
+            "The slamming of doors kissing goodbye"
         ],
         trinkets:[
             "assets/trinkets/debut/silver_locket.png",
@@ -24,18 +29,23 @@ const levels = [
         album: "Fearless",
         background: "assests/backgrounds/fearless.jpg",
         correctLyrics: [
-           
+            "I'm no one special, just another wide-eyed girl", 
+            "And I remember the slammin' door and all the things that I misread", 
+            "'Cause one second it was perfect, now you're halfway out the door", 
+            "He knelt to the ground and pulled out a ring"
         ],
         decoys: [
-           
+            "You tell me that you love me, then you strike me down", 
+            "I know your favorite songs and you tell me 'bout your friends",
+            "It must have been the way you kissed me, fell in love when I saw you dancing there"
         ],
         trinkets: [
             "assets/trinkets/fearless/gold_necklace.png",
             "assets/trinkets/fearless/lucky_penny.png",
             "assets/trinkets/fearless/13.png"
         ],
-        songClip: "assests/audio/fearless.mp3",
-        totalLyrics: ,
+        songClip: "assests/audio/love story.mp3",
+        totalLyrics: 4,
         totalTrinkets: 3,
         message: "YASSSS QUEEN"
     },
