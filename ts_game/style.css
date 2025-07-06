@@ -37,13 +37,21 @@ height: 100%;
     animation: float 8s ease-in-out infinite;
     user-select: none;
     font-size: 18px;
+    font-family: 'Lucida Handwriting', cursive;
 }
 
 .trinket {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     background: none;
     padding: 0;
+}
+
+.trinket-fallback {
+    position: absolute;
+    cursor: pointer;
+    animation: float 8s ease-in-out infinite;
+    user-select: none;
 }
 
 #counter-area{
@@ -54,6 +62,17 @@ height: 100%;
     color:white;
     text-shadow: 1px 1px 2px black; 
     font-size: 16px;
+}
+
+.birthday-message
+{
+    color: aliceblue;
+    background: rgba(0, 0, 0, 0.616);
+    padding: 20px;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 50px;
+    text-shadow: 1px 1px 2px black;
+    text-align: center;
 }
 
 /* message box - bottom when required */
@@ -69,6 +88,7 @@ height: 100%;
     color: white;
     border-radius: 10px;
     z-index: 4;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 /* hides message box when not in use - dynamically done in js */

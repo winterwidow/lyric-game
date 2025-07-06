@@ -2,6 +2,8 @@ let currentLevel = 0;
 let foundLyrics = 0;
 let foundTrinkets = 0;
 let currentAudio = null;
+let sparkleSound = new Audio('assests/sounds/sparkle.wav');
+let popSound = new Audio('assests/sounds/pop.wav');
 
 function startLevel(levelIndex)
 {
@@ -12,14 +14,13 @@ function startLevel(levelIndex)
     document.getElementById('scene-background').style.backgroundImage = `url(${level.background})` //set bg
     document.getElementById('floating-area').innerHTML = ''; //clear old elements
     
-    //place correct lyrics
-    level.correctLyrics.forEach (text => {
-        spawnFragment(text,true);
-    });
-
-    //place decoys
-    level.decoys.forEach (text => {
-        spawnFragment(text,false);
+    // Shuffle and place all lyrics (correct + decoys) in random order
+    const allLyrics = [...level.correctLyrics.map(text => ({text, isCorrect: true})), 
+                       ...level.decoys.map(text => ({text, isCorrect: false}))];
+    shuffleArray(allLyrics);
+    
+    allLyrics.forEach(lyric => {
+        spawnFragment(lyric.text, lyric.isCorrect);
     });
 
     //place trinkets
@@ -45,7 +46,7 @@ function startLevel(levelIndex)
 function spawnFragment(text, isCorrect)
 {
     const div = document.createElement('div');
-    div.classList.add('lyric_fragment');
+    div.classList.add('lyric-fragment');
     div.textContent = text;
 
     randomPosition(div); //random position on screen
@@ -54,6 +55,8 @@ function spawnFragment(text, isCorrect)
         if(isCorrect)
         {
             foundLyrics++;
+            popSound.currentTime = 0;
+            popSound.play();
             div.remove();
             updateCounters();
             showMessage("Corrrect!");
@@ -73,10 +76,38 @@ function spawnTrinket(imgSrc)
     img.src = imgSrc;
     img.classList.add('trinket');
 
+    // Handle image loading errors
+    img.onerror = function() {
+        console.warn(`Failed to load trinket image: ${imgSrc}`);
+        // Create a fallback div with text instead
+        const fallbackDiv = document.createElement('div');
+        fallbackDiv.classList.add('trinket-fallback');
+        fallbackDiv.textContent = '🎁';
+        fallbackDiv.style.fontSize = '40px';
+        fallbackDiv.style.cursor = 'pointer';
+        
+        randomPosition(fallbackDiv);
+        
+        fallbackDiv.addEventListener('click',() => {
+            foundTrinkets++;
+            fallbackDiv.remove();
+            updateCounters();
+            showMessage("Trinket collected!");
+            sparkleSound.currentTime = 0;
+            sparkleSound.play();
+            checkCompletion();
+        });
+        
+        document.getElementById('floating-area').appendChild(fallbackDiv);
+        img.remove(); // Remove the broken image
+    };
+
     randomPosition(img);
 
     img.addEventListener('click',() => {
         foundTrinkets++;
+        sparkleSound.currentTime = 0;
+        sparkleSound.play();
         img.remove();
         updateCounters();
         showMessage("Trinket collected!");
@@ -89,14 +120,29 @@ function spawnTrinket(imgSrc)
 function updateCounters()
 {
     const level = levels[currentLevel];
-    document.getElementById('lyric-counter').textContent = `${foundLyrics}/${level.correctLyrics.length}`;
-    document.getElementById('trinket-counter').textContent = `${foundTrinkets}/${level.trinkets.length}`;
+    document.getElementById('lyric-counter').textContent = `Lyrics Found: ${foundLyrics}/${level.correctLyrics.length}`;
+    document.getElementById('trinket-counter').textContent = `Trinkets Found: ${foundTrinkets}/${level.trinkets.length}`;
 }
 
 function randomPosition(ele)
 {
-    ele.style.top = `${Math.random()* 80}vh`;
-    ele.style.left = `${Math.random()* 90}vw`;
+    // Add margin to keep elements within visible screen
+    const margin = 80; // pixels from edge
+    const elementWidth = ele.offsetWidth || 200; // estimate width if not yet rendered
+    const elementHeight = ele.offsetHeight || 50; // estimate height if not yet rendered
+    
+    const maxTop = window.innerHeight - margin - elementHeight;
+    const maxLeft = window.innerWidth - margin - elementWidth;
+    
+    ele.style.top = `${margin + Math.random() * (maxTop - margin)}px`;
+    ele.style.left = `${margin + Math.random() * (maxLeft - margin)}px`;
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
 }
 
 function checkCompletion()
@@ -132,18 +178,20 @@ function showMessage(msg)
     const box = document.getElementById('message-box');
     box.textContent = msg;
     box.classList.remove('hidden');
-    setTimeout(() => box.classList.add('hidden'), 3000);
+    setTimeout(() => box.classList.add('hidden'), 7000);
 }
 
 function showBirthdayEnding()
 {
     document.getElementById('game-container').innerHTML = `
+    <div class="birthday-message">
     <h1>🎉 Happy Birthday Bestie! 🎉</h1>
     <p>
         You conquered the lyric challenge (never doubted you) 💜<br><br>
         Love you to the moon and back!<br>
         Keep shining, superstar ✨
     </p>
+    </div>
     `;
 }
 
