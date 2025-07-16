@@ -32,7 +32,7 @@ const levels = [
     },
     {
         album: "Speak Now",
-        background: "assests/backgrounds/speak now.jpg",
+        background: "assests/backgrounds/speak_now.jpg",
         correctLyrics: [
             "You made a rebel of a careless man's careful daughter",//mine
             "I'm not a princess, this ain't a fairy tale", //white horse
@@ -96,8 +96,8 @@ const levels = [
             "And what seemed like fate, give it ten months and you'll be past it" //us
         ],
         trinkets: [
-            "assests/trinkets/reputation/snake ring.png",
-            "assests/trinkets/reputation/snake.png" //snake from the rep tour
+            "assests/trinkets/rep/snake ring.png",
+            "assests/trinkets/rep/snake.png"
         ],
         songClip: "assests/audio/dancing with our hands tied.mp3",
         totalLyrics: 4,

@@ -79,7 +79,7 @@ const wordSearchLevels = {
         ],
         words: [
             { word: "EVERMORE", found: false },
-            { word: "COWBOWLIKEME", found: false },
+            { word: "COWBOYLIKEME", found: false },
             { word: "WILLOW", found: false }, 
             { word: "ITSTIMETOGO", found: false },
             { word: "GOLDRUSH", found: false },

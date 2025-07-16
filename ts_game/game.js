@@ -109,9 +109,11 @@ function spawnTrinket(imgSrc)
     const img= document.createElement('img');
     img.src = imgSrc;
     img.classList.add('trinket');
-
+    let fallbackCreated = false;
     // Handle image loading errors
     img.onerror = function() {
+        if (fallbackCreated) return;
+        fallbackCreated = true;
         console.warn(`Failed to load trinket image: ${imgSrc}`);
         // Create a fallback div with text instead
         const fallbackDiv = document.createElement('div');
@@ -119,9 +121,7 @@ function spawnTrinket(imgSrc)
         fallbackDiv.textContent = '🎁';
         fallbackDiv.style.fontSize = '40px';
         fallbackDiv.style.cursor = 'pointer';
-        
         randomPosition(fallbackDiv);
-        
         fallbackDiv.addEventListener('click',() => {
             foundTrinkets++;
             fallbackDiv.remove();
@@ -131,13 +131,10 @@ function spawnTrinket(imgSrc)
             sparkleSound.play();
             checkCompletion();
         });
-        
         document.getElementById('floating-area').appendChild(fallbackDiv);
         img.remove(); // Remove the broken image
     };
-
     randomPosition(img);
-
     img.addEventListener('click',() => {
         foundTrinkets++;
         sparkleSound.currentTime = 0;
@@ -147,7 +144,6 @@ function spawnTrinket(imgSrc)
         showMessage("Trinket collected!");
         checkCompletion();
     });
-
     document.getElementById('floating-area').appendChild(img);
 }
 
@@ -193,10 +189,12 @@ function showNextLevelButton()
 {
     const nextBtn = document.getElementById('next-level-btn');
     nextBtn.classList.remove('hidden');
-    
+    // Remove all previous click listeners by cloning the node
+    const newBtn = nextBtn.cloneNode(true);
+    nextBtn.parentNode.replaceChild(newBtn, nextBtn);
     // Add click event listener
-    nextBtn.addEventListener('click', () => {
-        nextBtn.classList.add('hidden');
+    newBtn.addEventListener('click', () => {
+        newBtn.classList.add('hidden');
         nextLevel();
     });
 }
@@ -241,6 +239,7 @@ function showBirthdayEnding()
 }
 
 window.onload = () => {
+    currentLevel = 0; // Always start from the first level
     startLevel(0);
     
     // Add click handler to allow audio to start after user interaction
