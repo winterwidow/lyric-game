@@ -8,11 +8,25 @@ let popSound = new Audio('assests/sounds/pop.wav');
 function startLevel(levelIndex)
 {
     const level = levels[levelIndex];
+    
+    // Check game type and start appropriate game
+    if (level.gameType === "wordsearch") {
+        startWordSearch(level.album);
+        return;
+    }
+    
+    // Default lyric game
     foundLyrics = 0;
     foundTrinkets = 0;
 
     document.getElementById('scene-background').style.backgroundImage = `url(${level.background})` //set bg
     document.getElementById('floating-area').innerHTML = ''; //clear old elements
+    
+    // Update album title
+    document.getElementById('album-title').textContent = level.album;
+    
+    // Hide next level button when starting new level
+    document.getElementById('next-level-btn').classList.add('hidden');
     
     // Shuffle and place all lyrics (correct + decoys) in random order
     const allLyrics = [...level.correctLyrics.map(text => ({text, isCorrect: true})), 
@@ -39,7 +53,27 @@ function startLevel(levelIndex)
     currentAudio = new Audio(level.songClip);
     currentAudio.loop = true;
     currentAudio.volume = 0.5;
-    currentAudio.play();
+    
+    // Handle audio loading and autoplay issues
+    currentAudio.addEventListener('canplaythrough', () => {
+        console.log(`Audio loaded successfully: ${level.songClip}`);
+    });
+    
+    currentAudio.addEventListener('error', (e) => {
+        console.warn(`Failed to load audio: ${level.songClip}`, e);
+    });
+    
+    // Try to play audio (may fail due to autoplay restrictions)
+    const playPromise = currentAudio.play();
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            console.log('Audio started playing successfully');
+        }).catch(error => {
+            console.warn('Audio autoplay failed (user interaction required):', error);
+            // Add a click-to-play button or instruction
+            showMessage("Click anywhere to start the music! 🎵");
+        });
+    }
 
 }
 
@@ -151,9 +185,20 @@ function checkCompletion()
     if(foundLyrics == level.correctLyrics.length && foundTrinkets == level.trinkets.length)
     {
         showMessage(`You completed the ${level.album} era! 🫶`);
-        setTimeout(nextLevel, 2500); //wait 2.5 seconds before going to next level
-
+        showNextLevelButton();
     }
+}
+
+function showNextLevelButton()
+{
+    const nextBtn = document.getElementById('next-level-btn');
+    nextBtn.classList.remove('hidden');
+    
+    // Add click event listener
+    nextBtn.addEventListener('click', () => {
+        nextBtn.classList.add('hidden');
+        nextLevel();
+    });
 }
 
 function nextLevel()
@@ -197,4 +242,15 @@ function showBirthdayEnding()
 
 window.onload = () => {
     startLevel(0);
+    
+    // Add click handler to allow audio to start after user interaction
+    document.getElementById('game-container').addEventListener('click', () => {
+        if (currentAudio && currentAudio.paused) {
+            currentAudio.play().then(() => {
+                console.log('Audio started after user interaction');
+            }).catch(error => {
+                console.warn('Still cannot play audio:', error);
+            });
+        }
+    });
 };

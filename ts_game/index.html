@@ -12,6 +12,10 @@
 
             <div id = "scene-background">   <!--album themed scene backgrounds-->
 
+                <div id="album-header">
+                    <h1 id="album-title">Taylor Swift</h1>
+                </div>
+
                 <div id="counter-area"> 
                     <div id="trinket-counter">Trinkets Found: 0/0</div> <!--counter for trinkets-->
                     <div id="lyric-counter">Lyrics Found: 0/0</div> <!--counter for lyrics-->
@@ -20,11 +24,14 @@
                 <div id="floating-area"></div>
 
                 <p id="message-box" class="hidden"><</p>
+                
+                <button id="next-level-btn" class="hidden">Next Level →</button>
 
             </div>
         </div>
 
         <script src="levels.js"></script> <!--connects to levels file-->
+        <script src="wordsearch.js"></script> <!--connects to word search game-->
         <script src="game.js"></script>  <!--connects to game logic-->
 
     </body>

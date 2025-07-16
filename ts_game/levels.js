@@ -27,30 +27,12 @@ const levels = [
     },
     {
         album: "Fearless",
-        background: "assests/backgrounds/fearless.jpg",
-        correctLyrics: [
-            "I'm no one special, just another wide-eyed girl", //superstar
-            "And I remember the slammin' door and all the things that I misread", //the other side of the door
-            "'Cause one second it was perfect, now you're halfway out the door", // forever and always
-            "He knelt to the ground and pulled out a ring" //love story
-        ],
-        decoys: [
-            "Sanctimoniously performing soliloquies I'll never see", //but daddy i love him
-            "I see your profile and your smile on unsuspecting waiters", //is it over now
-            "Life is emotionally abusive" //snow on the beach
-        ],
-        trinkets: [
-            "assets/trinkets/fearless/lucky_penny.png",
-            "assets/trinkets/fearless/13.png"
-        ],
-        songClip: "assests/audio/love story.mp3",
-        totalLyrics: 4,
-        totalTrinkets: 2,
+        gameType: "wordsearch",
         message: "YASSSS QUEEN"
     },
-    /*{
+    {
         album: "Speak Now",
-        background: "assests/backgrounds/speaknow.jpg",
+        background: "assests/backgrounds/speak now.jpg",
         correctLyrics: [
             "You made a rebel of a careless man's careful daughter",//mine
             "I'm not a princess, this ain't a fairy tale", //white horse
@@ -73,7 +55,7 @@ const levels = [
     },
     {
         album: "Red",
-        background: "assests/backgrounds/red.jpg",
+        background: "assests/backgrounds/red.png",
         correctLyrics: [
             "Just twin fire signs, four blue eyes", //state of grace
             "What a sad beautiful tragic love affair", //sad beautiful tragic
@@ -86,7 +68,7 @@ const levels = [
             "You're the only one of you baby, that's the fun of you" //me!
         ],
         trinkets: [
-            "assests/trinkets/red/red_scarf.png",
+            "assests/trinkets/red/ring.png",
             "assests/trinkets/red/heart_shaped_sunglasses.png",
         ],
         songClip: "assests/audio/sad beautiful tragic.mp3",
@@ -96,26 +78,7 @@ const levels = [
     },
     {
         album: "1989",
-        background: "assests/backgrounds/1989.jpg",
-        correctLyrics: [
-             "His hands are in my hair, his clothes are in my room", //wildest dreams
-             "Struggled through the night with someone new", //this love
-             "Haven't you heard what becomes of curious minds?", //i know places
-             "Your new girl is my clone" //is it over now
-        ],
-        decoys: [
-               "All that time you were throwin' punches, I was buildin' somethin'", //thank you almee
-               "I got cursed like Eve got bitten", //propehcy
-               "I'm damned if I do give a damn what people say" //lavender haze
-        ],
-        trinkets: [
-            "assests/trinkets/1989/vintage_camera.png",
-            "assests/trinkets/1989/.png", //some new york symbol
-            "assests/trinkets/1989/seagull.png"
-        ],
-        songClip: "assests/audio/wildest dreams.mp3",
-        totalLyrics: 4,
-        totalTrinkets: 3,
+        gameType: "wordsearch",
         message: "YES! You nailed it 💜"
     },
     {
@@ -128,18 +91,17 @@ const levels = [
             "I'm laughing with my lover, makin' forts under covers"//call it what you want
         ],
         decoys: [
-            "Wait 'til you see half the things that haven’t happened yet", //i can see you
+            "Wait 'til you see half the things that haven't happened yet", //i can see you
             "I'm wonderstruck, blushin' all the way home", //enchanted
             "And what seemed like fate, give it ten months and you'll be past it" //us
         ],
         trinkets: [
-            "assests/trinkets/reputation/snake_ring.png",
-            "assests/trinkets/reputation/newspaper_clippings.png",
+            "assests/trinkets/reputation/snake ring.png",
             "assests/trinkets/reputation/snake.png" //snake from the rep tour
         ],
         songClip: "assests/audio/dancing with our hands tied.mp3",
         totalLyrics: 4,
-        totalTrinkets: 3,
+        totalTrinkets: 2,
         message: "Taylor would be so proud"
     },
     {
@@ -156,9 +118,9 @@ const levels = [
             "And here's to you 'Cause forgiveness is a nice thing to do" //this is why we cant have ncie things
         ],
         trinkets: [
-            "assests/trinkets/lover/rainbow flag.png",
+            "assests/trinkets/lover/pride flag.jpg",
             "assests/trinkets/lover/archer.png", //for archer song
-            "assests/trinkets/lover/heart_balloon.png"
+            "assests/trinkets/lover/heart balloon.jpg"
         ],
         songClip: "assests/audio/paper rings.mp3",
         totalLyrics: 3,
@@ -180,9 +142,9 @@ const levels = [
             "Wonderin' if I dodged a bullet Or just lost the love of my life" //i dont wanna live forever
         ],
         trinkets: [
-            "assests/trinkets/folklore/piano.png", 
+            "assests/trinkets/folklore/piano.jpg", 
             "assests/trinkets/folklore/cottage.png", //cottage for the 1 from eras tour
-            "assests/trinkets/folklore/mirrorball.png" 
+            "assests/trinkets/folklore/mirrorball.jpg" 
         ],
         songClip: "assests/audio/peace.mp3",
         totalLyrics: 4,
@@ -191,28 +153,7 @@ const levels = [
     },
     {
         album: "Evermore",
-        background: "assests/backgrounds/evermore.jpg",
-        correctLyrics: [
-            "You know that my train could take you home anywhere else is hollow", //willow
-            "She would've made such a lovely bride, What a shame she's fucked in the head", //champagne problems
-            "The snaps from the same little breaks in your soul",//its time to go
-            "So yeah, it's a war It's the goddamn fight of my life And you started it", //ivy
-            "Hustlin' for the good life, never thought I'd meet you here", //cowboy like me
-            "Hey, December Guess I'm feeling unmoored" //evermore
-        ],
-        decoys: [
-            "So I did my best to lay to rest all of the bodies that have ever been on my body",//florida
-            "So they set my life in flames, I regret to say, Do you believe me now?",//cassandra
-            "Is it really your anxiety that stops you from giving me everything" //renegade
-        ],
-        trinkets: [
-            "assests/trinkets/evermore/willow_tree.png", //for willow 
-            "assests/trinkets/evermore/gold_ball.png", //from willow performance
-            "assests/trinkets/evermore/champagne_glass.png" //for champagne problems
-        ],
-        songClip: "assests/audio/willow.mp3",
-        totalLyrics: 6,
-        totalTrinkets: 3,
+        gameType: "wordsearch",
         message: "LETS GOOOO"
     },
     {
@@ -231,17 +172,17 @@ const levels = [
             "Stop checkin' your mailbox for confessions of love" //foolish one
         ],
         trinkets: [
-            "assests/trinkets/midnights/clock.png", //points at 12 for midnight
-            "assests/trinkets/midnights/glitter_purple_blood.png", //from anti hero mv
+            "assests/trinkets/midnights/clock.jpg", //points at 12 for midnight
+            "assests/trinkets/midnights/purple lake.jpg", //from anti hero mv
         ],
         songClip: "assests/audio/youre_on_your_own.mp3",
-        totalLyrics: ,
+        totalLyrics: 4,
         totalTrinkets: 3,
         message: "ONE MORE LET'S GO"
     },
     {
         album: "The Tortured Poets Department",
-        background: "assests/backgrounds/ttpd.jpg",
+        background: "assests/backgrounds/ttpd.jpeg",
         correctLyrics: [
             "You have no room in your dreams for regrets", //robin
             "Can we watch our phantoms like watching wild horses?", //chloe,sam,sophia,marcus
@@ -259,11 +200,11 @@ const levels = [
         ],
         trinkets: [
             "assests/trinkets/ttpd/typewriter.png",
-            "assests/trinkets/ttpd/ufo.png", //down bad eras performance
+            "assests/trinkets/ttpd/manuscript.png", //down bad eras performance
         ],
         songClip: "assests/audio/prophecy.mp3",
         totalLyrics: 7,
         totalTrinkets: 2,
         message: "YOU DID IT!!!"
-    }*/
+    }
 ]
